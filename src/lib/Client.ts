@@ -4,7 +4,9 @@ import { join } from 'path';
 
 import { OPTIONS } from './util/CONSTANTS';
 
-const CORE_DIRECTORY = join(__dirname, '..', '/');
+const registerCoreDirectory = join(__dirname, '..', '/');
+
+import './schemas/UserSchema';
 
 /**
  * The client for handling everything. See {@tutorial GettingStarted} for more information how to get started using this class.
@@ -40,8 +42,19 @@ export class PointsClient extends Client {
   }
 
   static [Client.plugin]() {
-		const typedThis = this as unknown as PointsClient;
-		util.mergeDefault(OPTIONS, typedThis.options);
+    const typedThis = this as unknown as PointsClient;
+    util.mergeDefault(OPTIONS, typedThis.options);
+
+    // @ts-ignore
+    typedThis.commands.registerCoreDirectory(registerCoreDirectory);
+    // @ts-ignore
+    typedThis.finalizers.registerCoreDirectory(registerCoreDirectory);
+    // @ts-ignore
+    typedThis.events.registerCoreDirectory(registerCoreDirectory);
+    // @ts-ignore
+    typedThis.monitors.registerCoreDirectory(registerCoreDirectory);
+    // @ts-ignore
+    typedThis.inhibitors.registerCoreDirectory(registerCoreDirectory);
 	}
 
 }

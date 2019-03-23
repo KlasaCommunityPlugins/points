@@ -1309,7 +1309,7 @@ dir-glob@^2.0.0:
   dependencies:
     path-type "^3.0.0"
 
-discord.js@discordjs/discord.js:
+"discord.js@github:discordjs/discord.js":
   version "12.0.0-dev"
   resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/9b2bf03ff6041148a0c6c6351a2bd74c44b4166a"
   dependencies:
@@ -2521,9 +2521,13 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-klasa@dirigeants/klasa:
+klasa-member-gateway@dirigeants/klasa-member-gateway:
+  version "0.0.1-dev"
+  resolved "https://codeload.github.com/dirigeants/klasa-member-gateway/tar.gz/9b92b0290f2a782bc85068a185dbdf95362afe54"
+
+"klasa@github:dirigeants/klasa":
   version "0.5.0-dev"
-  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/583fe6ccf782c929e8668ef917b0a09804d982fc"
+  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/0410122c4918fc7fc026f7c15130be704afb12da"
   dependencies:
     fs-nextra "^0.4.3"
 
