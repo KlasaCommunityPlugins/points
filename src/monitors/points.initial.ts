@@ -12,12 +12,12 @@ export default class PointsInitialAmount extends Monitor {
     if (!this.options.initialAmount) return null;
     await message.guild.members.fetch(message.author);
     await message.member.user.settings.sync();
-    const receivedInitial = message.member.user.settings.get('pointsPlugin.receivedInitial') as boolean;
+    const receivedInitial = message.member.user.settings.get('points.receivedInitial') as boolean;
     if (receivedInitial) return null;
     const points = message.member.user.settings.get('pointsPlugin.count') as number;
     await message.member.user.settings.update([
-      ['pointsPlugin.count', points + this.options.initialAmount],
-      ['pointsPlugin.receivedInitial', true],
+      ['points.count', points + this.options.initialAmount],
+      ['points.receivedInitial', true],
     ]);
     return null;
   }
