@@ -1,7 +1,8 @@
+// Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
 import { Client } from 'klasa';
 
 export const UserSchema = Client.defaultUserSchema
-  .add('points-plugin', (points) => points
+  .add('pointsPlugin', (points) => points
     .add('count', 'integer', { default: 0, configurable: false })
     .add('recievedInitial', 'boolean', { default: false, configurable: false })
     .add('cooldown', (cooldown) => cooldown

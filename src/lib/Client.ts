@@ -1,5 +1,5 @@
 // Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
-import { Client, KlasaClientOptions, util } from 'klasa';
+import { Client, KlasaClientOptions, Settings as KSettings, util } from 'klasa';
 import { join } from 'path';
 
 import { OPTIONS } from './util/CONSTANTS';
@@ -60,6 +60,17 @@ export class PointsClient extends Client {
 
 }
 
+export interface UserSettings extends KSettings {
+  'pointsPlugin': {
+    count: number;
+    recievedInitial: boolean;
+    cooldown: {
+      on: boolean;
+      expire: number;
+    };
+  };
+}
+
 declare module 'discord.js' {
 	interface ClientOptions {
 		points: {
@@ -71,5 +82,5 @@ declare module 'discord.js' {
       maxAdd: number;
       minAdd: number;
     };
-	}
+  }
 }
