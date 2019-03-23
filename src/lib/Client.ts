@@ -1,5 +1,5 @@
 // Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
-import { Client, KlasaClientOptions, util } from 'klasa';
+import { Client, KlasaClientOptions, RateLimitManager, util } from 'klasa';
 import { join } from 'path';
 
 import { OPTIONS } from './util/CONSTANTS';
@@ -25,10 +25,11 @@ export class PointsClient extends Client {
    * @property {boolean} [enabled=false]
    * @property {string} [commandOpt="price"]
    * @property {number} [defuaultPrice=0]
-   * @property {number} [cooldown=60000]
+   * @property {number} [cooldown=60000] Time is in miliseconds
    * @property {number} [minAdd=30]
    * @property {number} [maxAdd=100]
    * @property {number} [initialAmount=null]
+   * @property {number} [pointAcquisitionBucket=1]
    */
 
   /**
@@ -70,6 +71,11 @@ declare module 'discord.js' {
       initialAmount: number | null;
       maxAdd: number;
       minAdd: number;
+      pointAcquisitionBucket: number;
     };
+  }
+
+  interface User {
+    pointsCooldown: RateLimitManager;
   }
 }

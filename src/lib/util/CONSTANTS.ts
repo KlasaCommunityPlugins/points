@@ -8,5 +8,6 @@ export const OPTIONS = {
 		initialAmount: null,
 		maxAdd: 100,
 		minAdd: 30,
+		pointAcquisitionBucket: 1,
 	},
 };
