@@ -9,7 +9,7 @@ class PointsUser extends User {
 	 * @type {RateLimit}
 	 * @protected
 	 */
-	pointsCooldown = new RateLimit(
+	pointsCooldown: RateLimit = new RateLimit(
 		this.client.options.points.pointAcquisitionBucket,
 		this.client.options.points.cooldown,
 	);
