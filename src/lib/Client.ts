@@ -24,7 +24,7 @@ export class PointsClient extends Client {
    * @typedef {Object} PointsOptions
    * @property {boolean} [enabled=false]
    * @property {string} [commandOpt="price"]
-   * @property {number} [defualtPrice=0]
+   * @property {number} [defuaultPrice=0]
    * @property {number} [cooldown=60000]
    * @property {number} [minAdd=30]
    * @property {number} [maxAdd=100]
@@ -63,7 +63,7 @@ export class PointsClient extends Client {
 export interface UserSettings extends KSettings {
   'pointsPlugin': {
     count: number;
-    recievedInitial: boolean;
+    receivedInitial: boolean;
     cooldown: {
       on: boolean;
       expire: number;
@@ -76,7 +76,7 @@ declare module 'discord.js' {
 		points: {
       commandOpt: string;
       cooldown: number;
-      defualtPrice: number;
+      defaultPrice: number;
       enabled: boolean;
       initialAmount: number | null;
       maxAdd: number;

@@ -3,7 +3,7 @@ export const OPTIONS = {
 	points: {
 		commandOpt: 'price',
 		cooldown: 60000,
-		defualtPrice: 0,
+		defaultPrice: 0,
 		enabled: false,
 		initialAmount: null,
 		maxAdd: 100,

@@ -3,7 +3,6 @@ import { Client, KlasaMessage, Monitor, MonitorStore } from 'klasa';
 import { PUserSettings } from '../index';
 
 export default class PointsInitialAmount extends Monitor {
-
   private readonly options = this.client.options.points;
 
 	constructor(client: Client, store: MonitorStore, file: string[], directory: string) {
@@ -14,10 +13,10 @@ export default class PointsInitialAmount extends Monitor {
     const settings: PUserSettings = message.member.user.settings as PUserSettings;
     const points = settings.pointsPlugin.count;
     if (!this.options.initialAmount) return;
-    if (settings.pointsPlugin.recievedInitial === true) return;
+    if (settings.pointsPlugin.receivedInitial === true) return;
     await settings.update([
       ['pointsPlugin.count', points + this.options.initialAmount],
-      ['pointsPlugin.recievedInitial', true],
-    ], {});
+      ['pointsPlugin.receivedInitial', true],
+    ]);
 	}
 }
