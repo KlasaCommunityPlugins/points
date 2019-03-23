@@ -28,6 +28,7 @@ export class PointsClient extends Client {
    * @property {number} [cooldown=60000]
    * @property {number} [minAdd=30]
    * @property {number} [maxAdd=100]
+   * @property {number} [initialAmount=null]
    */
 
   /**
@@ -59,13 +60,14 @@ export class PointsClient extends Client {
 
 }
 
-declare module 'klasa' {
-	interface KlasaClientOptions {
+declare module 'discord.js' {
+	interface ClientOptions {
 		points: {
       commandOpt: string;
       cooldown: number;
       defualtPrice: number;
       enabled: boolean;
+      initialAmount: number | null;
       maxAdd: number;
       minAdd: number;
     };

@@ -5,6 +5,7 @@ export const OPTIONS = {
 		cooldown: 60000,
 		defualtPrice: 0,
 		enabled: false,
+		initialAmount: null,
 		maxAdd: 100,
 		minAdd: 30,
 	},
