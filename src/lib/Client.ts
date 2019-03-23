@@ -60,17 +60,6 @@ export class PointsClient extends Client {
 
 }
 
-export interface UserSettings extends KSettings {
-  'pointsPlugin': {
-    count: number;
-    receivedInitial: boolean;
-    cooldown: {
-      on: boolean;
-      expire: number;
-    };
-  };
-}
-
 declare module 'discord.js' {
 	interface ClientOptions {
 		points: {

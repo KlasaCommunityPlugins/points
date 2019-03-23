@@ -1,6 +1,5 @@
 // Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
 import { Client, KlasaMessage, Monitor, MonitorStore } from 'klasa';
-import { PUserSettings } from '../index';
 
 export default class PointsInitialAmount extends Monitor {
   private readonly options = this.client.options.points;
@@ -10,13 +9,16 @@ export default class PointsInitialAmount extends Monitor {
 	}
 
 	async run(message: KlasaMessage) {
-    const settings: PUserSettings = message.member.user.settings as PUserSettings;
-    const points = settings.pointsPlugin.count;
-    if (!this.options.initialAmount) return;
-    if (settings.pointsPlugin.receivedInitial === true) return;
-    await settings.update([
+    if (!this.options.initialAmount) return null;
+    await message.guild.members.fetch(message.author);
+    await message.member.user.settings.sync();
+    const receivedInitial = message.member.user.settings.get('pointsPlugin.receivedInitial') as boolean;
+    if (receivedInitial) return null;
+    const points = message.member.user.settings.get('pointsPlugin.count') as number;
+    await message.member.user.settings.update([
       ['pointsPlugin.count', points + this.options.initialAmount],
       ['pointsPlugin.receivedInitial', true],
     ]);
-	}
+    return null;
+  }
 }
