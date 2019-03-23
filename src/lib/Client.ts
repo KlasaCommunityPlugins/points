@@ -1,5 +1,5 @@
 // Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
-import { Client, KlasaClientOptions, Settings as KSettings, util } from 'klasa';
+import { Client, KlasaClientOptions, util } from 'klasa';
 import { join } from 'path';
 
 import { OPTIONS } from './util/CONSTANTS';
