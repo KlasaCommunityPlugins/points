@@ -2,9 +2,23 @@
 import { User } from 'discord.js';
 import { Client, RateLimit } from 'klasa';
 
+/**
+ * Helper class attached to every user
+ * @since 0.0.1
+ * @private
+ */
 export default class Points {
+  /**
+   * The user on which this is attached
+   */
   user: User;
+  /**
+   * The plugins client
+   */
   client: Client;
+  /**
+   * The provided options to the plugin
+   */
   readonly options = this.client.options.points;
 
   /**
@@ -14,6 +28,11 @@ export default class Points {
    */
   limiter: RateLimit;
 
+  /**
+   * @since 0.0.1
+   * @param {external:User} user The user on which this attached on
+   * @param {external:KlasaClient} [client] The plugins client
+   */
   constructor(user: User, client?: Client) {
     this.user = user;
     this.client = client ? client : user.client as Client;
@@ -25,7 +44,11 @@ export default class Points {
     this.limiter.reset();
   }
 
-  genPoints() {
+  /**
+   * Generates a random amount of points
+   * @returns {number} The resulting points the user will be given
+   */
+  genPoints(): number {
     return Math.floor(Math.random() * (this.options.maxAdd - this.options.minAdd + 1) ) + this.options.minAdd;
   }
 

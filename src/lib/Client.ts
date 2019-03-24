@@ -17,7 +17,7 @@ import './schemas/UserSchema';
 export class PointsClient extends Client {
 
   /**
-   * @typedef {external:KlasaClientOptions} FunctionsClientOptions
+   * @typedef {external:KlasaClientOptions} PointsClientOptions
    * @property {PointsOptions} [points={}]
    */
 

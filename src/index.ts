@@ -16,3 +16,7 @@ exports[KlasaClient.plugin] = Client[KlasaClient.plugin];
  * @external KlasaClientOptions
  * @see {@link https://klasa.js.org/#/docs/klasa/master/typedef/KlasaClientOptions}
  */
+/**
+ * @external User
+ * @see {@link https://discord.js.org/#/docs/main/master/class/User}
+ */
