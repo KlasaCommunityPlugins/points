@@ -1,18 +1,15 @@
 // Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
 import { Structures, User } from 'discord.js';
-import { RateLimit } from 'klasa';
+import Points from '../util/Points';
 
 class PointsUser extends User {
 	/**
-	 * The ratelimit management for the point cooldown system
+	 * The handler for the users points
 	 * @since 0.0.1
-	 * @type {RateLimit}
+	 * @type {Points}
 	 * @protected
 	 */
-	pointsCooldown: RateLimit = new RateLimit(
-		this.client.options.points.pointAcquisitionBucket,
-		this.client.options.points.cooldown,
-	);
+	points: Points = new Points(this, this.client);
 }
 
 Structures.extend('User', () => PointsUser);

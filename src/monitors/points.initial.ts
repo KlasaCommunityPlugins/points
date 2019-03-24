@@ -3,7 +3,6 @@ import { Client, KlasaMessage, Monitor, MonitorStore } from 'klasa';
 
 export default class PointsInitialAmount extends Monitor {
   private readonly options = this.client.options.points;
-
 	constructor(client: Client, store: MonitorStore, file: string[], directory: string) {
 		super(client, store, file, directory, { ignoreOthers: false });
 	}

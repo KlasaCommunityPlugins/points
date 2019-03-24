@@ -1,6 +1,7 @@
 // Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
-import { Client, KlasaClientOptions, RateLimit, util } from 'klasa';
+import { Client, KlasaClientOptions, util } from 'klasa';
 import { join } from 'path';
+import Points from './util/Points';
 
 import { OPTIONS } from './util/CONSTANTS';
 
@@ -76,6 +77,6 @@ declare module 'discord.js' {
   }
 
   interface User {
-    pointsCooldown: RateLimit;
+    points: Points;
   }
 }
