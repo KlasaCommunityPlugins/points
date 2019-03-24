@@ -24,7 +24,6 @@ export class PointsClient extends Client {
   /**
    * @typedef {Object} PointsOptions
    * @property {boolean} [enabled=false]
-   * @property {string} [commandOpt="price"]
    * @property {number} [defuaultPrice=0]
    * @property {number} [cooldown=60000] Time is in miliseconds
    * @property {number} [minAdd=30]
@@ -65,7 +64,6 @@ export class PointsClient extends Client {
 declare module 'discord.js' {
 	interface ClientOptions {
 		points: {
-      commandOpt: string;
       cooldown: number;
       defaultPrice: number;
       enabled: boolean;
