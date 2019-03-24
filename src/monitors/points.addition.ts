@@ -7,13 +7,15 @@ export default class PointsAddition extends Monitor {
 	}
 
 	async run(message: KlasaMessage) {
-    const user = message.member.user;
+    const user = message.author;
     if (user.points.limiter.limited) return null;
     try {
       user.points.limiter.drip();
-      const points = message.member.user.settings.get('pointsPlugin.count') as number;
-      await message.member.user.settings.update([['points.count', points + user.points.genPoints]]);
+      const points = user.settings.get('pointsPlugin.count') as number;
+      await user.settings.update([['points.count', points + user.points.genPoints()]]);
       return true;
-    } catch { return null; }
+    } catch {
+      return null;
+    }
   }
 }

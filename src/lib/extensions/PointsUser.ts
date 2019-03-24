@@ -1,5 +1,6 @@
 // Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
 import { Structures, User } from 'discord.js';
+import { Client as KClient } from 'klasa';
 import Points from '../util/Points';
 
 class PointsUser extends User {
@@ -9,7 +10,7 @@ class PointsUser extends User {
 	 * @type {Points}
 	 * @protected
 	 */
-	points: Points = new Points(this, this.client);
+	points: Points = new Points(this, (this.client as KClient));
 }
 
 Structures.extend('User', () => PointsUser);

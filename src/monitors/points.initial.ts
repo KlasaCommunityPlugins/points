@@ -10,11 +10,11 @@ export default class PointsInitialAmount extends Monitor {
 	async run(message: KlasaMessage) {
     if (!this.options.initialAmount) return null;
     await message.guild.members.fetch(message.author);
-    await message.member.user.settings.sync();
-    const receivedInitial = message.member.user.settings.get('points.receivedInitial') as boolean;
+    await message.author.settings.sync();
+    const receivedInitial = message.author.settings.get('points.receivedInitial') as boolean;
     if (receivedInitial) return null;
-    const points = message.member.user.settings.get('pointsPlugin.count') as number;
-    await message.member.user.settings.update([
+    const points = message.author.settings.get('pointsPlugin.count') as number;
+    await message.author.settings.update([
       ['points.count', points + this.options.initialAmount],
       ['points.receivedInitial', true],
     ]);

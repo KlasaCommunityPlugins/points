@@ -1,11 +1,10 @@
 // Copyright (c) 2018-2019 KlasaCommunityPlugins. All rights reserved. MIT license.
-import { Client, User } from 'discord.js';
-import { Client as KClient, RateLimit } from 'klasa';
+import { User } from 'discord.js';
+import { Client, RateLimit } from 'klasa';
 
 export default class Points {
-
   user: User;
-  client: Client | KClient;
+  client: Client;
   readonly options = this.client.options.points;
 
   /**
@@ -15,10 +14,9 @@ export default class Points {
    */
   limiter: RateLimit;
 
-  constructor(user: User, client?: Client | KClient) {
+  constructor(user: User, client?: Client) {
     this.user = user;
-    this.client = client ? client : user.client;
-
+    this.client = client ? client : user.client as Client;
     this.limiter = new RateLimit(
       this.options.pointAcquisitionBucket,
       this.options.cooldown,
@@ -27,7 +25,7 @@ export default class Points {
     this.limiter.reset();
   }
 
-  get genPoints() {
+  genPoints() {
     return Math.floor(Math.random() * (this.options.maxAdd - this.options.minAdd + 1) ) + this.options.minAdd;
   }
 
