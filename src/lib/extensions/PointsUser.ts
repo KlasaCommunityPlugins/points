@@ -3,7 +3,7 @@ import { Structures } from 'discord.js';
 import { Client as KClient } from 'klasa';
 import Points from '../util/Points';
 
-Structures.extend('User', User => class PointsUser extends User {
+const PointsUser = Structures.extend('User', User => class PointsUser extends User {
 	/**
 	 * The handler for the users points
 	 * @since 0.0.1
